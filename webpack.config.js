@@ -9,7 +9,12 @@ module.exports = {
     stats: "errors-only",
     host: "0.0.0.0",
     historyApiFallback: true,
-    overlay: true
+    overlay: true,
+    watchOptions: {
+      ignored: /node_modules/,
+      aggregateTimeout: 300,
+      poll: 1000
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
