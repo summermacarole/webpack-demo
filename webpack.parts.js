@@ -15,7 +15,16 @@ exports.loadCss = ({ exclude, include } = {}) => ({
         test: /\.css$/,
         include,
         exclude,
-        use: ["style-loader", "css-loader"]
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: () => [require("postcss-cssnext"), require("precss")]
+            }
+          }
+        ]
       }
     ]
   }
