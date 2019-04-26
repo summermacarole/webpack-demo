@@ -20,3 +20,15 @@ exports.loadCss = ({ exclude, include } = {}) => ({
     ]
   }
 });
+exports.loadLess = ({ exclude, include } = {}) => ({
+  module: {
+    rules: [
+      {
+        test: /\.less$/,
+        include,
+        exclude,
+        use: ["style-loader", "css-loader", "less-loader"]
+      }
+    ]
+  }
+});

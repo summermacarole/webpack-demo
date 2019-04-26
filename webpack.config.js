@@ -17,7 +17,8 @@ const commonConfig = merge([
       })
     ]
   },
-  parts.loadCss({ exclude: /node_modules/ })
+  parts.loadCss({ exclude: /node_modules/ }),
+  parts.loadLess({ exclude: /node_modules/ })
 ]);
 
 const productionConfig = merge([]);
