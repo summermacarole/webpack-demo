@@ -32,3 +32,15 @@ exports.loadLess = ({ exclude, include } = {}) => ({
     ]
   }
 });
+exports.loadSass = ({ exclude, include } = {}) => ({
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        include,
+        exclude,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      }
+    ]
+  }
+});
