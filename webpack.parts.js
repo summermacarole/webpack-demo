@@ -38,7 +38,12 @@ exports.devServer = ({ host, port } = {}) => ({
     overlay: true
   }
 });
-
+exports.autoprefix = () => ({
+  loader: "postcss-loader",
+  options: {
+    plugins: () => [require("autoprefixer")()],
+  },
+});
 exports.loadCss = ({ exclude, include } = {}) => ({
   module: {
     rules: [
