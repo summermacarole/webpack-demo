@@ -40,9 +40,6 @@ exports.devServer = ({ host, port } = {}) => ({
 });
 exports.autoprefix = () => ({
   loader: "postcss-loader",
-  options: {
-    plugins: () => [require("autoprefixer")()],
-  },
 });
 exports.loadCss = ({ exclude, include } = {}) => ({
   module: {
