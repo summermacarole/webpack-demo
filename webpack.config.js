@@ -16,19 +16,24 @@ const commonConfig = merge([
         title: "Webpack App"
       })
     ]
-  },
-  parts.loadCss({ exclude: /node_modules/ }),
-  parts.loadLess({ exclude: /node_modules/ }),
-  parts.loadSass({ exclude: /node_modules/ })
+  }
+  // parts.loadCss({ exclude: /node_modules/ }),
+  // parts.loadLess({ exclude: /node_modules/ }),
+  // parts.loadSass({ exclude: /node_modules/ })
 ]);
 
-const productionConfig = merge([]);
+const productionConfig = merge([
+  parts.extractCSS({
+    use: "css-loader"
+  })
+]);
 
 const developmentConfig = merge([
   parts.devServer({
     host: process.env.HOST,
     port: process.env.PORT
-  })
+  }),
+  parts.loadCss({ exclude: /node_modules/ })
 ]);
 
 module.exports = mode => {
