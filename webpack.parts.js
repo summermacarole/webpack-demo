@@ -1,7 +1,15 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PurifyCssPlugin = require("purifycss-webpack");
 exports.purifyCss = ({ paths }) => ({
-  plugins: [new PurifyCssPlugin({ paths })]
+  plugins: [
+    new PurifyCssPlugin({
+      paths,
+      purifyOptions: {
+        minify: true,
+        whitelist: []
+      }
+    })
+  ]
 });
 exports.extractCSS = ({ include, exclude, use = [] }) => {
   const plugin = new MiniCssExtractPlugin({
