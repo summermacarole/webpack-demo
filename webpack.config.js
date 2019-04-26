@@ -16,7 +16,8 @@ const commonConfig = merge([
         title: "Webpack App"
       })
     ]
-  }
+  },
+  parts.loadCss({ exclude: /node_modules/ })
 ]);
 
 const productionConfig = merge([]);
